@@ -12,13 +12,13 @@ extension UIView {
     //MARK: - Methods
     
     func addSubviews(_ view: UIView...) {
-        
         view.forEach { view in
             view.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(view)
         }
     }
     
+    /// Make a shadow for the elements
     func makeShadow() {
         self.layer.shadowColor = UIColor.white.cgColor
         self.layer.shadowOpacity = 0.25

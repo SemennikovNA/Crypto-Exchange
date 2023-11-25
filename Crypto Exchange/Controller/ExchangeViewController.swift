@@ -53,3 +53,7 @@ extension ExchangeViewController {
         ])
     }
 }
+
+#Preview {
+    ExchangeViewController()
+}
