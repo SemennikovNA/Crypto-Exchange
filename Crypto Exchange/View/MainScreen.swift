@@ -11,22 +11,34 @@ final class MainScreen: UIView {
     
     //MARK: - UI Elements
     
+   private lazy var headImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "bit")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    private lazy var currencyLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Курс монет"
+        lbl.textAlignment = .center
+        lbl.textColor = .lightAndDarkMode
+        lbl.font = .boldSystemFont(ofSize: 35)
+        return lbl
+    }()
+    
     let cryptoCoin: UITextField = {
         let crypto = UITextField()
         crypto.backgroundColor = .white
         crypto.makeShadow()
         crypto.font = .systemFont(ofSize: 25)
-        crypto.placeholder = "Введите монету"
+        crypto.textAlignment = .center
+        crypto.textColor = .black
+        crypto.layer.cornerRadius = 30
+        crypto.attributedPlaceholder = NSAttributedString(
+            string: "Введите монету",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         return crypto
-    }()
-    
-    let currencyLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.backgroundColor = .white
-        lbl.text = "Testtesttest"
-        lbl.textAlignment = .center
-        lbl.font = .boldSystemFont(ofSize: 35)
-        return lbl
     }()
     
     let fiatCoin: UITextField = {
@@ -34,13 +46,20 @@ final class MainScreen: UIView {
         fiat.backgroundColor = .white
         fiat.makeShadow()
         fiat.font = .systemFont(ofSize: 25)
-        fiat.placeholder = "Введите фиатную валюту"
+        fiat.textAlignment = .center
+        fiat.textColor = .black
+        fiat.layer.cornerRadius = 30
+        fiat.attributedPlaceholder = NSAttributedString(
+            string: "Введите валюту",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         return fiat
     }()
     
-    let currencyRate: UIButton = {
+    private lazy var currencyRateButton: UIButton = {
         let but = UIButton()
         but.backgroundColor = .white
+        but.layer.cornerRadius = 25
+        but.isSelected = true
         but.makeShadow()
         return but
     }()
@@ -53,24 +72,31 @@ final class MainScreen: UIView {
         // Call function's
         setupView()
         setupConstraints()
-        
-        cryptoCoin.layer.cornerRadius = cryptoCoin.frame.height / 2
-        fiatCoin.layer.cornerRadius = fiatCoin.frame.height / 2
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Methods
+    
+    func addTarget(target: Any, selector: Selector) {
+        currencyRateButton.addTarget(target, action: selector, for: .touchUpInside)
+    }
+    
     //MARK: - Private methods
     
     private func setupView() {
         self.addSubviews(
+            headImage,
             cryptoCoin,
             currencyLabel,
             fiatCoin,
-            currencyRate
+            currencyRateButton
         )
+        currencyRateButton.setTitle("Посчитать", for: .normal)
+        currencyRateButton.setTitleColor(.black, for: .normal)
+        currencyRateButton.titleLabel?.font = .systemFont(ofSize: 25)
     }
 }
 
@@ -82,29 +108,37 @@ extension MainScreen {
         
         NSLayoutConstraint.activate([
             
+            // Currency label
+            currencyLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            currencyLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
+            currencyLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            currencyLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            currencyLabel.heightAnchor.constraint(equalToConstant: 100),
+            
+            // Head image view
+            headImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            headImage.topAnchor.constraint(equalTo: currencyLabel.bottomAnchor),
+            headImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            headImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            headImage.heightAnchor.constraint(equalToConstant: 100),
+            
             // Crypto coin text field
             cryptoCoin.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            cryptoCoin.bottomAnchor.constraint(equalTo: self.currencyLabel.topAnchor, constant: -50),
+            cryptoCoin.topAnchor.constraint(equalTo: self.headImage.bottomAnchor, constant: 50),
             cryptoCoin.heightAnchor.constraint(equalToConstant: 60),
             cryptoCoin.widthAnchor.constraint(equalToConstant: 300),
             
-            // Currency label
-            currencyLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            currencyLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            currencyLabel.heightAnchor.constraint(equalToConstant: 60),
-            currencyLabel.widthAnchor.constraint(equalToConstant: 300),
-            
             // Fiat coint text field
-            fiatCoin.topAnchor.constraint(equalTo: currencyLabel.bottomAnchor, constant: 50),
+            fiatCoin.topAnchor.constraint(equalTo: cryptoCoin.bottomAnchor, constant: 50),
             fiatCoin.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             fiatCoin.heightAnchor.constraint(equalToConstant: 60),
             fiatCoin.widthAnchor.constraint(equalToConstant: 300),
             
             // Currency rate button
-            currencyRate.topAnchor.constraint(equalTo: fiatCoin.bottomAnchor, constant: 150),
-            currencyRate.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            currencyRate.heightAnchor.constraint(equalToConstant: 50),
-            currencyRate.widthAnchor.constraint(equalToConstant: 150),
+            currencyRateButton.topAnchor.constraint(equalTo: fiatCoin.bottomAnchor, constant: 200),
+            currencyRateButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            currencyRateButton.heightAnchor.constraint(equalToConstant: 50),
+            currencyRateButton.widthAnchor.constraint(equalToConstant: 200),
         ])
     }
 }
