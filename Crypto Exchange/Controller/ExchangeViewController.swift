@@ -26,6 +26,7 @@ final class ExchangeViewController: UIViewController {
         // Delegate
         mainView.cryptoCoin.delegate = self
         mainView.fiatCoin.delegate = self
+        networkManager.delegate = self
     }
     
     //MARK: - Methods
@@ -38,7 +39,7 @@ final class ExchangeViewController: UIViewController {
         
         // Configure view
         view.addSubviews(mainView)
-        mainView.backgroundColor = .darkBlue
+        mainView.backgroundColor = .back
         
         // Configure navigation items
         let rightButton = UIBarButtonItem(image: UIImage(systemName: "filemenu.and.selection"), style: .done, target: self, action: #selector(rightBarButtonTapped))
@@ -84,7 +85,7 @@ final class ExchangeViewController: UIViewController {
             let okBut = UIAlertAction(title: "Назад", style: .destructive)
             configureAllertController(message: "Введите монету и валюту", but: okBut, isNil: true)
         }
-
+        
     }
 }
 
@@ -125,11 +126,24 @@ extension ExchangeViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        textField.endEditing(true)
     }
-    
 }
 
-#Preview {
-    ExchangeViewController()
+extension ExchangeViewController: TransitData {
+    
+    //MARK: Transit data delegate methods
+    
+    func transitData(_ apiManager: ApiManager, coins: Coins) {
+        let crypto = coins.crypto
+        let rate = String(format: "%.2f", coins.rate)
+        let fiat = coins.fiat
+        DispatchQueue.main.async {
+            self.configureAllertController(message: "1 \(crypto) = \(rate) \(fiat) ", but: nil)
+        }
+    }
+    
+    func failWithError(_ error: Error) {
+        print(String(describing: error))
+    }
 }

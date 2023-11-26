@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol transitData {
-    func transitData(_ apiManager: ApiManager, coins: Coinapi)
+protocol TransitData {
+    func transitData(_ apiManager: ApiManager, coins: Coins)
     func failWithError(_ error: Error)
 }
 
@@ -18,6 +18,7 @@ class ApiManager {
     
     let apiKey = "8151B4C9-D0CA-4883-81BE-10452B7393C1"
     let url = "https://rest.coinapi.io/v1/exchangerate/"
+    var delegate: TransitData?
     
     //MARK: - Methods
     
@@ -35,7 +36,8 @@ class ApiManager {
                 print(String(describing: error))
             }
             guard let parseData = try? JSONDecoder().decode(Coinapi.self, from: data!) else { return }
-            print(parseData)
+            let coin = Coins(crypto: parseData.asset_id_base, fiat: parseData.asset_id_quote, rate: parseData.rate)
+            self.delegate?.transitData(self, coins: coin)
         }
         task.resume()
     }

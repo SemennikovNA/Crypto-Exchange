@@ -16,6 +16,7 @@
 		1E586D842B11CE3000CA1E00 /* UIView - Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D832B11CE3000CA1E00 /* UIView - Extension.swift */; };
 		1E586D882B13276100CA1E00 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D872B13276100CA1E00 /* ApiManager.swift */; };
 		1E586D8E2B135B7800CA1E00 /* Coinapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D8D2B135B7800CA1E00 /* Coinapi.swift */; };
+		1E586D922B137A6400CA1E00 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D912B137A6400CA1E00 /* Coins.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1E586D832B11CE3000CA1E00 /* UIView - Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView - Extension.swift"; sourceTree = "<group>"; };
 		1E586D872B13276100CA1E00 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		1E586D8D2B135B7800CA1E00 /* Coinapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coinapi.swift; sourceTree = "<group>"; };
+		1E586D912B137A6400CA1E00 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				1E586D872B13276100CA1E00 /* ApiManager.swift */,
 				1E586D8D2B135B7800CA1E00 /* Coinapi.swift */,
+				1E586D912B137A6400CA1E00 /* Coins.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			files = (
 				1E586D812B11C01300CA1E00 /* MainScreen.swift in Sources */,
 				1E586D842B11CE3000CA1E00 /* UIView - Extension.swift in Sources */,
+				1E586D922B137A6400CA1E00 /* Coins.swift in Sources */,
 				1E586D8E2B135B7800CA1E00 /* Coinapi.swift in Sources */,
 				1E586D6C2B11BC8000CA1E00 /* ExchangeViewController.swift in Sources */,
 				1E586D682B11BC8000CA1E00 /* AppDelegate.swift in Sources */,
@@ -347,6 +351,7 @@
 				DEVELOPMENT_TEAM = 4HU57HU93W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Crypto Exchange/Support/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Exchange;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -379,6 +384,7 @@
 				DEVELOPMENT_TEAM = 4HU57HU93W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Crypto Exchange/Support/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Exchange;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

@@ -29,7 +29,7 @@ final class MainScreen: UIView {
     
     let cryptoCoin: UITextField = {
         let crypto = UITextField()
-        crypto.backgroundColor = .white
+        crypto.backgroundColor = .elements
         crypto.makeShadow()
         crypto.font = .systemFont(ofSize: 25)
         crypto.textAlignment = .center
@@ -47,7 +47,7 @@ final class MainScreen: UIView {
     
     let fiatCoin: UITextField = {
         let fiat = UITextField()
-        fiat.backgroundColor = .white
+        fiat.backgroundColor = .elements
         fiat.makeShadow()
         fiat.font = .systemFont(ofSize: 25)
         fiat.textAlignment = .center
@@ -65,7 +65,7 @@ final class MainScreen: UIView {
     
     private lazy var currencyRateButton: UIButton = {
         let but = UIButton()
-        but.backgroundColor = .white
+        but.backgroundColor = .elements
         but.layer.cornerRadius = 25
         but.isSelected = true
         but.makeShadow()
