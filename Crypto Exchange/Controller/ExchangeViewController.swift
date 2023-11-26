@@ -70,7 +70,7 @@ final class ExchangeViewController: UIViewController {
     //MARK: - Objectiv-C methods
     
     @objc func rightBarButtonTapped() {
-        // Переход на контроллер сохранения
+        let saveVC = SaveTableViewController()
     }
     
     @objc func currencyRateButtonTapped(sender: UIButton) {

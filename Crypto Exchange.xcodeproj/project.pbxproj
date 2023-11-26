@@ -17,6 +17,8 @@
 		1E586D882B13276100CA1E00 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D872B13276100CA1E00 /* ApiManager.swift */; };
 		1E586D8E2B135B7800CA1E00 /* Coinapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D8D2B135B7800CA1E00 /* Coinapi.swift */; };
 		1E586D922B137A6400CA1E00 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D912B137A6400CA1E00 /* Coins.swift */; };
+		1E586D962B13B9C500CA1E00 /* SaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D952B13B9C500CA1E00 /* SaveTableViewCell.swift */; };
+		1E586D9A2B13BE5F00CA1E00 /* SaveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D992B13BE5F00CA1E00 /* SaveTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		1E586D872B13276100CA1E00 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		1E586D8D2B135B7800CA1E00 /* Coinapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coinapi.swift; sourceTree = "<group>"; };
 		1E586D912B137A6400CA1E00 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
+		1E586D952B13B9C500CA1E00 /* SaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTableViewCell.swift; sourceTree = "<group>"; };
+		1E586D992B13BE5F00CA1E00 /* SaveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				1E586D802B11C01300CA1E00 /* MainScreen.swift */,
+				1E586D952B13B9C500CA1E00 /* SaveTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				1E586D6B2B11BC8000CA1E00 /* ExchangeViewController.swift */,
+				1E586D992B13BE5F00CA1E00 /* SaveTableViewController.swift */,
 				1E586D822B11CE1400CA1E00 /* Extensions */,
 			);
 			path = Controller;
@@ -197,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E586D962B13B9C500CA1E00 /* SaveTableViewCell.swift in Sources */,
+				1E586D9A2B13BE5F00CA1E00 /* SaveTableViewController.swift in Sources */,
 				1E586D812B11C01300CA1E00 /* MainScreen.swift in Sources */,
 				1E586D842B11CE3000CA1E00 /* UIView - Extension.swift in Sources */,
 				1E586D922B137A6400CA1E00 /* Coins.swift in Sources */,
