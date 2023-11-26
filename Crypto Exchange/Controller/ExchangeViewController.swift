@@ -31,7 +31,9 @@ final class ExchangeViewController: UIViewController {
     
     //MARK: - Methods
     
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     //MARK: - Private methods
     
@@ -71,6 +73,9 @@ final class ExchangeViewController: UIViewController {
     
     @objc func rightBarButtonTapped() {
         let saveVC = SaveTableViewController()
+        saveVC.modalTransitionStyle = .coverVertical
+        saveVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(saveVC, animated: true)
     }
     
     @objc func currencyRateButtonTapped(sender: UIButton) {

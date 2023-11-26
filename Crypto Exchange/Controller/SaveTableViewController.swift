@@ -14,6 +14,7 @@ class SaveTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Call function's
         setupTableView()
     }
@@ -30,6 +31,7 @@ class SaveTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SaveCell", for: indexPath) as! SaveTableViewCell
+        cell.backgroundColor = .back
         cell.cryptoLabel.text = "Крипта"
         cell.equalLabel.text = "="
         cell.fiatLabel.text = "Валюта"
@@ -40,5 +42,11 @@ class SaveTableViewController: UITableViewController {
     
     func setupTableView() {
         tableView.backgroundColor = .back
+        self.tableView.register(SaveTableViewCell.self, forCellReuseIdentifier: "SaveCell")
+        navigationItem.title = "Сохраненые пары"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.topItem?.backButtonTitle = "Назад"
+        navigationController?.navigationBar.tintColor = .lightAndDarkMode
     }
 }
