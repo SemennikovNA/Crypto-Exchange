@@ -34,7 +34,11 @@ final class MainScreen: UIView {
         crypto.font = .systemFont(ofSize: 25)
         crypto.textAlignment = .center
         crypto.textColor = .black
+        crypto.tintColor = .black
         crypto.layer.cornerRadius = 30
+        crypto.clearButtonMode = .always
+        crypto.keyboardType = .webSearch
+        crypto.autocapitalizationType = .allCharacters
         crypto.attributedPlaceholder = NSAttributedString(
             string: "Введите монету",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
@@ -48,7 +52,11 @@ final class MainScreen: UIView {
         fiat.font = .systemFont(ofSize: 25)
         fiat.textAlignment = .center
         fiat.textColor = .black
+        fiat.tintColor = .black
         fiat.layer.cornerRadius = 30
+        fiat.clearButtonMode = .always
+        fiat.keyboardType = .webSearch
+        fiat.autocapitalizationType = .allCharacters
         fiat.attributedPlaceholder = NSAttributedString(
             string: "Введите валюту",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])

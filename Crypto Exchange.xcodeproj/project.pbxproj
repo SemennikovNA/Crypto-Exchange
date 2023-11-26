@@ -14,6 +14,8 @@
 		1E586D742B11BC8100CA1E00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E586D722B11BC8100CA1E00 /* LaunchScreen.storyboard */; };
 		1E586D812B11C01300CA1E00 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D802B11C01300CA1E00 /* MainScreen.swift */; };
 		1E586D842B11CE3000CA1E00 /* UIView - Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D832B11CE3000CA1E00 /* UIView - Extension.swift */; };
+		1E586D882B13276100CA1E00 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D872B13276100CA1E00 /* ApiManager.swift */; };
+		1E586D8E2B135B7800CA1E00 /* Coinapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E586D8D2B135B7800CA1E00 /* Coinapi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1E586D752B11BC8100CA1E00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E586D802B11C01300CA1E00 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		1E586D832B11CE3000CA1E00 /* UIView - Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView - Extension.swift"; sourceTree = "<group>"; };
+		1E586D872B13276100CA1E00 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		1E586D8D2B135B7800CA1E00 /* Coinapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coinapi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 		1E586D7D2B11BDC600CA1E00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E586D872B13276100CA1E00 /* ApiManager.swift */,
+				1E586D8D2B135B7800CA1E00 /* Coinapi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,8 +196,10 @@
 			files = (
 				1E586D812B11C01300CA1E00 /* MainScreen.swift in Sources */,
 				1E586D842B11CE3000CA1E00 /* UIView - Extension.swift in Sources */,
+				1E586D8E2B135B7800CA1E00 /* Coinapi.swift in Sources */,
 				1E586D6C2B11BC8000CA1E00 /* ExchangeViewController.swift in Sources */,
 				1E586D682B11BC8000CA1E00 /* AppDelegate.swift in Sources */,
+				1E586D882B13276100CA1E00 /* ApiManager.swift in Sources */,
 				1E586D6A2B11BC8000CA1E00 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

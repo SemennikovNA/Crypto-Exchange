@@ -12,6 +12,7 @@ final class ExchangeViewController: UIViewController {
     //MARK: - Properties
     
     let mainView = MainScreen()
+    let networkManager = ApiManager()
     
     //MARK: - Lifecycle
     
@@ -46,15 +47,23 @@ final class ExchangeViewController: UIViewController {
         
         // Targets for button
         mainView.addTarget(target: self, selector: #selector(currencyRateButtonTapped))
+        mainView.cryptoCoin.clearButtonMode = .always
     }
     
-    private func configureAllertController(message: String) {
-        let alert = UIAlertController(title: "Текущий курс", message: message, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Назад", style: .cancel)
-        let saveButton = UIAlertAction(title: "Сохранить", style: .default)
-        alert.addAction(okButton)
-        alert.addAction(saveButton)
-        self.present(alert, animated: true)
+    /// Configure alert controller
+    private func configureAllertController(message: String, but: UIAlertAction?, isNil: Bool = false) {
+        if isNil == false {
+            let alert = UIAlertController(title: "Текущий курс", message: message, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "Назад", style: .cancel)
+            let saveButton = UIAlertAction(title: "Сохранить", style: .default)
+            alert.addAction(okButton)
+            alert.addAction(saveButton)
+            self.present(alert, animated: true)
+        } else {
+            let nilAlert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
+            nilAlert.addAction(but!)
+            self.present(nilAlert, animated: true)
+        }
     }
     
     //MARK: - Objectiv-C methods
@@ -63,8 +72,19 @@ final class ExchangeViewController: UIViewController {
         // Переход на контроллер сохранения
     }
     
-    @objc func currencyRateButtonTapped() {
-        configureAllertController(message: "Hello")
+    @objc func currencyRateButtonTapped(sender: UIButton) {
+        guard let crypto = mainView.cryptoCoin.text, let fiat = mainView.fiatCoin.text else { return }
+        if crypto != "" || fiat != "" {
+            networkManager.getCoinFiat(coin: crypto, fiat: fiat)
+            mainView.cryptoCoin.text = ""
+            mainView.cryptoCoin.placeholder = "Введите монету"
+            mainView.fiatCoin.text = ""
+            mainView.fiatCoin.placeholder = "Введите валюту"
+        } else {
+            let okBut = UIAlertAction(title: "Назад", style: .destructive)
+            configureAllertController(message: "Введите монету и валюту", but: okBut, isNil: true)
+        }
+
     }
 }
 
@@ -91,8 +111,25 @@ extension ExchangeViewController: UITextFieldDelegate {
     
     //MARK: Text field delegate methods
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            textField.endEditing(true)
+            return true
+        } else if textField == mainView.cryptoCoin {
+            textField.placeholder = "Нужно ввести монету"
+            return true
+        } else {
+            textField.placeholder = "Нужно ввести валюту"
+            return true
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+    }
     
 }
+
 #Preview {
     ExchangeViewController()
 }
