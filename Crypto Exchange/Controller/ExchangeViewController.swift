@@ -42,11 +42,11 @@ final class ExchangeViewController: UIViewController {
         // Configure view
         view.addSubviews(mainView)
         mainView.backgroundColor = .back
-        
+    
         // Configure navigation items
-        let rightButton = UIBarButtonItem(image: UIImage(systemName: "filemenu.and.selection"), style: .done, target: self, action: #selector(rightBarButtonTapped))
-        rightButton.tintColor = .lightAndDarkMode
-        navigationItem.rightBarButtonItem = rightButton
+//        let rightButton = UIBarButtonItem(image: UIImage(systemName: "filemenu.and.selection"), style: .done, target: self, action: #selector(rightBarButtonTapped))
+//        rightButton.tintColor = .lightAndDarkMode
+//        navigationItem.rightBarButtonItem = rightButton
         
         // Targets for button
         mainView.addTarget(target: self, selector: #selector(currencyRateButtonTapped))
@@ -60,7 +60,7 @@ final class ExchangeViewController: UIViewController {
             let okButton = UIAlertAction(title: "Назад", style: .cancel)
             let saveButton = UIAlertAction(title: "Сохранить", style: .default)
             alert.addAction(okButton)
-            alert.addAction(saveButton)
+//            alert.addAction(saveButton)
             self.present(alert, animated: true)
         } else {
             let nilAlert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
@@ -71,12 +71,12 @@ final class ExchangeViewController: UIViewController {
     
     //MARK: - Objectiv-C methods
     
-    @objc func rightBarButtonTapped() {
-        let saveVC = SaveTableViewController()
-        saveVC.modalTransitionStyle = .coverVertical
-        saveVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(saveVC, animated: true)
-    }
+//    @objc func rightBarButtonTapped() {
+//        let saveVC = SaveTableViewController()
+//        saveVC.modalTransitionStyle = .coverVertical
+//        saveVC.modalPresentationStyle = .fullScreen
+//        navigationController?.pushViewController(saveVC, animated: true)
+//    }
     
     @objc func currencyRateButtonTapped(sender: UIButton) {
         guard let crypto = mainView.cryptoCoin.text, let fiat = mainView.fiatCoin.text else { return }
@@ -140,9 +140,11 @@ extension ExchangeViewController: TransitData {
     //MARK: Transit data delegate methods
     
     func transitData(_ apiManager: ApiManager, coins: Coins) {
+        
         let crypto = coins.crypto
         let rate = String(format: "%.2f", coins.rate)
         let fiat = coins.fiat
+        
         DispatchQueue.main.async {
             self.configureAllertController(message: "1 \(crypto) = \(rate) \(fiat) ", but: nil)
         }

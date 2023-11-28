@@ -70,6 +70,7 @@
 			children = (
 				1E586D7B2B11BD4E00CA1E00 /* Aplication */,
 				1E586D7F2B11BDDB00CA1E00 /* Controller */,
+				1E586D822B11CE1400CA1E00 /* Extensions */,
 				1E586D7D2B11BDC600CA1E00 /* Model */,
 				1E586D7C2B11BD5F00CA1E00 /* Support */,
 				1E586D7E2B11BDD200CA1E00 /* View */,
@@ -120,7 +121,6 @@
 			children = (
 				1E586D6B2B11BC8000CA1E00 /* ExchangeViewController.swift */,
 				1E586D992B13BE5F00CA1E00 /* SaveTableViewController.swift */,
-				1E586D822B11CE1400CA1E00 /* Extensions */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
