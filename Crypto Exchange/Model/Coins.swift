@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Coins {
+struct Coins: Codable {
     
     let crypto: String
     let fiat: String
